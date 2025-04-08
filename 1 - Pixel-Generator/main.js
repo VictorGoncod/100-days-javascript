@@ -53,7 +53,7 @@ gridButton.addEventListener("click", () => {
             count += 2;
             let col = document.createElement("div");
             col.classList.add("gridCol");
-            col.setAttribute("id", 'gridCol${count}');
+            col.setAttribute("id", `gridCol${count}`);
             col.addEventListener(events[deviceType].down, () => {
                 draw = true;
                 if(erase){
@@ -72,7 +72,7 @@ gridButton.addEventListener("click", () => {
             });
 
             col.addEventListener(events[deviceType].up, () => {
-                draw = false
+                draw = false;
             });
 
             div.appendChild(col);
@@ -86,7 +86,7 @@ gridButton.addEventListener("click", () => {
 function checker(elementId){
     let gridColumns = document.querySelectorAll(".gridCol");
     gridColumns.forEach((element) => {
-        if(elementId == element.id){
+        if(elementId == element.id) {
             if(draw && !erase){
                 element.style.backgroundColor = colorButton.value;
             }else if(draw && erase){
@@ -109,11 +109,11 @@ paintBtn.addEventListener("click", () => {
 });
 
 gridWidth.addEventListener("input", () => {
-    widthValue.innerHTML = gridWidth.value < 9 ? '0${gridWidth.value}' : gridWidth.value;
+    widthValue.innerHTML = gridWidth.value < 9 ? `0${gridWidth.value}` : gridWidth.value;
 });
 
 gridHeight.addEventListener("input", () => {
-    heightValue.innerHTML = gridHeight.value < 9 ? '0${gridHeight.value}' : gridHeight.value;
+    heightValue.innerHTML = gridHeight.value < 9 ? `0${gridHeight.value}` : gridHeight.value;
 });
 
 window.onload = () => {
